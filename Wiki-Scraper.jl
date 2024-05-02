@@ -1,10 +1,10 @@
 using HTTP, Gumbo, AbstractTrees, Cascadia, InteractiveUtils, CUDA
 nlinks = ["/w/", "//", "/wiki/Category", "/wiki/Portal", "/wiki/File", "/wiki/Help", "/wiki/Wikipedia", "/wiki/Special", '#', "/wiki/Talk", "/wiki/Template", "Main_Page", "/wiki/Special"]
 num = 0
-country = "en"
+country = "the language your wiki pages are in (e.g en, de)"
 active = true
-src_link = "https://en.wikipedia.org/wiki/Linus_Torvalds"
-dest_link = "https://en.wikipedia.org/wiki/TOP500"
+src_link = "your starting link"
+dest_link = "your final link"
 traceback = [src_link]
 all_links = [src_link]
 function founded()
@@ -12,7 +12,6 @@ function founded()
     for links in traceback
         if occursin(dest_link, links)
             links = split(links, ';')
-            file1 = open(file_link, "w")
             for link in links
                 if link == dest_link
                     print(link)
